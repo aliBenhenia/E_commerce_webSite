@@ -83,7 +83,7 @@ function AppHeader() {
           },
         ]}
       />
-      <Typography.Title>Aamir Store</Typography.Title>
+      <Typography.Title>ALI BEN</Typography.Title>
       <AppCart />
     </div>
   );
@@ -94,7 +94,7 @@ function AppCart() {
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
     getCart().then((res) => {
-      setCartItems(res.products);
+      setCartItems(res.products); 
     });
   }, []);
   const onConfirmOrder = (values) => {
@@ -192,57 +192,33 @@ function AppCart() {
         title="Confirm Order"
       >
         <Form onFinish={onConfirmOrder}>
-          <Form.Item
-            rules={[
-              {
-                required: true,
-                message: "Please enter your full name",
-              },
-            ]}
-            label="Full Name"
-            name="full_name"
-          >
-            <Input placeholder="Enter your full name.." />
-          </Form.Item>
-          <Form.Item
-            rules={[
-              {
-                required: true,
-                type: "email",
-                message: "Please enter a valid email",
-              },
-            ]}
-            label="Email"
-            name="your_name"
-          >
-            <Input placeholder="Enter your email.." />
-          </Form.Item>
-          <Form.Item
-            rules={[
-              {
-                required: true,
-                message: "Please enter your address",
-              },
-            ]}
-            label="Address"
-            name="your_address"
-          >
-            <Input placeholder="Enter your full address.." />
-          </Form.Item>
-          <Form.Item>
-            <Checkbox defaultChecked disabled>
-              Cash on Delivery
-            </Checkbox>
-          </Form.Item>
-          <Typography.Paragraph type="secondary">
-            More methods coming soon
-          </Typography.Paragraph>
-          <Button type="primary" htmlType="submit">
-            {" "}
-            Confirm Order
-          </Button>
+           <Form.Item rules={[{
+            required : true,
+            message : "please enter your name"
+           }]} label="full name" name="full_name">
+              <Input placeholder="enter your name..."/>
+           </Form.Item>
+           <Form.Item rules={[{
+            required : true,
+            message : "please enter your email"
+           }]} label="Email" name="your_name">
+              <Input placeholder="enter your Email..."/>
+           </Form.Item>
+           <Form.Item rules={[{
+            required : true,
+            message : "please enter your address"
+           }]} label="address" name="your_address">
+              <Input placeholder="enter your address..."/>
+           </Form.Item>
+           <Form.Item>
+              <Checkbox defaultChecked disabled>Cash on Deliver</Checkbox>
+           </Form.Item>
+           <Typography.Paragraph type="secondary">More method comming soon</Typography.Paragraph>
+           <Button type="primary" htmlType="submit">
+              Confirm order
+           </Button>
         </Form>
-      </Drawer>
+     </Drawer>
     </div>
   );
 }
